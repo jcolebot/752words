@@ -1,0 +1,13 @@
+<h1>Welcome to 750 words!!</h1>
+
+<p>Here is a list of your writings so far!</p>
+
+<ul>
+    <% @all_my_writings.each do |this_writing| %>
+        <li>
+            <a href="/bloop/<%= this_writing.id %>"><%= this_writing.title %> (<%= this_writing.text.length/5 %>)</a>
+        </li>
+    <% end %>
+</ul>
+
+<p><%= link_to "Add a new writing!", "/puppy" %></p>

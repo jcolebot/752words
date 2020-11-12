@@ -1,0 +1,31 @@
+<h1>Write your new writing here!</h1>
+<form action="/writings" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+    <div>
+        Title: <input name="title"></input>
+    </div>
+    <div>
+        Text: <textarea id="story" onInput="countTheWords()" name="text"></textarea>
+    </div>
+    <div>
+        <button>save!</button>
+    </div>
+</form>
+
+<div id="howManyWords"></div>
+
+<div>It is currently <%= Time.now %></div>
+
+<script>
+    countTheWords = () => {
+        const myText = document.getElementById("story").value;
+        const wordCount = myText.length / 5
+        document.getElementById("howManyWords").innerHTML = wordCount + " words";
+    }
+</script>
+
+<style>
+  div {
+      background-color: orange;
+  }
+</style>
